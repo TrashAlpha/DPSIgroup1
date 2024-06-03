@@ -14,8 +14,8 @@ public class Employee {
             File f1=new File("file"+emp.employ_id+".txt");
             if(f1.createNewFile()){
                 FileWriter myWriter = new FileWriter("file"+emp.employ_id+".txt");
-                myWriter.write("Employee ID:"+emp.employ_id+"\n"+"Employee Name     :"+emp.name+"\n"+
-                "Father's Name     :"+emp.father_name+"\n"+"Employee Contact  :"+emp.employ_contact+"\n"+
+                myWriter.write("Employee ID:"+emp.employ_id+"\n"+"Employee Name     :"+emp.firstName+"\n"+
+                "Father's Name     :"+emp.lastName+"\n"+"Employee Contact  :"+emp.employ_contact+"\n"+
                 "Email Information :"+emp.email+"\n"+"Employee position :"+emp.position+"\n"+
                 "Employee Salary   :"+emp.employ_salary);
                 myWriter.close();
