@@ -1,0 +1,7 @@
+Employee ID:123
+Employee Name     :Ariel
+Father's Name     :Putra
+Employee Contact  :0896
+Email Information :ariel@gmail.com
+Employee position :HRD
+Employee Salary   :100000

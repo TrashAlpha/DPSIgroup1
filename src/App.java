@@ -7,7 +7,7 @@ public class App {
     System.out.print("\033[H\033[2J");
 
     Scanner sc=new Scanner(System.in);
-    Employee_Show epv =new Employee_Show();
+    Employee epv =new Employee();
 
     int i=0;
 
@@ -20,12 +20,11 @@ public class App {
       System.out.print("\nPlease Enter choice :");
       i=Integer.parseInt(sc.nextLine());
 
-      /** Switch Case Statements **/
       switch(i)
       {
         case 1:
         {
-        Employee_Add ep =new Employee_Add();
+        Employee ep =new Employee();
         ep.createFile();
 
         System.out.print("\033[H\033[2J");
@@ -53,7 +52,7 @@ public class App {
         {
           System.out.print("\nPlease Enter Employee's ID :");
           String s=sc.nextLine();
-          Employee_Remove epr =new Employee_Remove();
+          Employee epr =new Employee();
           epr.removeFile(s);
 
           System.out.print("\nPress Enter to Continue...");
@@ -74,7 +73,7 @@ public class App {
             {
               System.out.println(e);
             }
-            Employee_Update epu = new Employee_Update();
+            Employee epu = new Employee();
             System.out.print("Please Enter the detail you want to Update :");
     	      System.out.print("\nFor Example :\n");
             System.out.println("If you want to Change the Name, then Enter Current Name and Press Enter. Then write the new Name then Press Enter. It will Update the Name.\n");
