@@ -1,0 +1,9 @@
+
+
+Employee ID:123
+Employee Name     :Agus
+Father's Name     :Agusman
+Employee Contact  :088
+Email Information :Idub@email.yeet
+Employee position :Pak bos
+Employee Salary   :5000
