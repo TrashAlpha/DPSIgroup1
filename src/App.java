@@ -128,6 +128,7 @@ public class App {
                             System.out.println("Anda telah logout.");
                             run = true;
                             isLogin = false;
+                            System.out.print("\033[H\033[2J");
                             break;
                         }
                         case 6: {
@@ -136,7 +137,7 @@ public class App {
                         }
                     }
                 }
-            }else if(isLogin){
+            }else if(isLogin && Akun.getCurrentUser().isAdmin() == false){
                 System.out.print("\033[H\033[2J");
 
                 Employee epv = new Employee();
@@ -145,7 +146,7 @@ public class App {
                 MainMenu obj1 = new MainMenu();
                 obj1.menuEmployee();
 
-                while (i < 3) {
+                while (i < 2) {
                     System.out.print("\nPlease Enter choice : ");
                     i = Integer.parseInt(sc.nextLine());
 
@@ -169,6 +170,7 @@ public class App {
                             System.out.println("Anda telah logout.");
                             run = true;
                             isLogin = false;
+                            System.out.print("\033[H\033[2J");
                             break;
                         }
                         case 3: {
