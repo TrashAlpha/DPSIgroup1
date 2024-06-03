@@ -39,93 +39,99 @@ public class App {
                         System.out.println("Username atau password salah. Silakan coba lagi.");
                     }
                 }
-                isLogin = true;
                 run = false;
             } else {
                 run = false;
             }
-        }
 
-        sc.nextLine();
+            sc.nextLine();
 
-        if (isLogin) {
-            System.out.print("\033[H\033[2J");
+            if (isLogin) {
+                System.out.print("\033[H\033[2J");
 
-            Employee epv = new Employee();
-            int i = 0;
+                Employee epv = new Employee();
+                int i = 0;
 
-            MainMenu obj1 = new MainMenu();
-            obj1.menu();
+                MainMenu obj1 = new MainMenu();
+                obj1.menu();
 
-            while (i < 6) {
-                System.out.print("\nPlease Enter choice : ");
-                i = Integer.parseInt(sc.nextLine());
+                while (i < 5) {
+                    System.out.print("\nPlease Enter choice : ");
+                    i = Integer.parseInt(sc.nextLine());
 
-                switch (i) {
-                    case 1: {
-                        Employee ep = new Employee();
-                        ep.createFile();
+                    switch (i) {
+                        case 1: {
+                            Employee ep = new Employee();
+                            ep.createFile();
 
-                        System.out.print("\033[H\033[2J");
-                        obj1.menu();
-                        break;
-                    }
-                    case 2: {
-                        System.out.print("\nPlease Enter Employee's ID : ");
-                        String s = sc.nextLine();
-                        try {
-                            epv.viewFile(s);
-                        } catch (Exception e) {
-                            System.out.println(e);
+                            System.out.print("\033[H\033[2J");
+                            obj1.menu();
+                            break;
                         }
-                        System.out.print("\nPress Enter to Continue...");
-                        sc.nextLine();
-                        System.out.print("\033[H\033[2J");
-                        obj1.menu();
-                        break;
-                    }
-                    case 3: {
-                        System.out.print("\nPlease Enter Employee's ID : ");
-                        String s = sc.nextLine();
-                        Employee epr = new Employee();
-                        epr.removeFile(s);
-
-                        System.out.print("\nPress Enter to Continue...");
-                        sc.nextLine();
-                        System.out.print("\033[H\033[2J");
-                        obj1.menu();
-                        break;
-                    }
-                    case 4: {
-                        System.out.print("\nPlease Enter Employee's ID : ");
-                        String I = sc.nextLine();
-                        try {
-                            epv.viewFile(I);
-                        } catch (Exception e) {
-                            System.out.println(e);
+                        case 2: {
+                            System.out.print("\nPlease Enter Employee's ID : ");
+                            String s = sc.nextLine();
+                            try {
+                                epv.viewFile(s);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+                            System.out.print("\nPress Enter to Continue...");
+                            sc.nextLine();
+                            System.out.print("\033[H\033[2J");
+                            obj1.menu();
+                            break;
                         }
-                        Employee epu = new Employee();
-                        System.out.print("Please Enter the detail you want to Update :");
-                        System.out.print("\nFor Example :\n");
-                        System.out.println("If you want to Change the Name, then Enter Current Name and Press Enter. Then write the new Name then Press Enter. It will Update the Name.\n");
-                        String s = sc.nextLine();
-                        System.out.print("Please Enter the Updated Info : ");
-                        String n = sc.nextLine();
-                        try {
-                            epu.updateFile(I, s, n);
+                        case 3: {
+                            System.out.print("\nPlease Enter Employee's ID : ");
+                            String s = sc.nextLine();
+                            Employee epr = new Employee();
+                            epr.removeFile(s);
 
                             System.out.print("\nPress Enter to Continue...");
                             sc.nextLine();
                             System.out.print("\033[H\033[2J");
                             obj1.menu();
                             break;
-                        } catch (IOException e) {
-                            System.out.println(e);
                         }
-                    }
-                    case 5: {
-                        CodeExit obj = new CodeExit();
-                        obj.out();
+                        case 4: {
+                            System.out.print("\nPlease Enter Employee's ID : ");
+                            String I = sc.nextLine();
+                            try {
+                                epv.viewFile(I);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+                            Employee epu = new Employee();
+                            System.out.print("Please Enter the detail you want to Update :");
+                            System.out.print("\nFor Example :\n");
+                            System.out.println("If you want to Change the Name, then Enter Current Name and Press Enter. Then write the new Name then Press Enter. It will Update the Name.\n");
+                            String s = sc.nextLine();
+                            System.out.print("Please Enter the Updated Info : ");
+                            String n = sc.nextLine();
+                            try {
+                                epu.updateFile(I, s, n);
+
+                                System.out.print("\nPress Enter to Continue...");
+                                sc.nextLine();
+                                System.out.print("\033[H\033[2J");
+                                obj1.menu();
+                                break;
+                            } catch (IOException e) {
+                                System.out.println(e);
+                            }
+                        }
+                        case 5: {
+                            Akun.logout();
+                            System.out.println("Anda telah logout.");
+                            run = true;
+                            isLogin = false;
+                            break;
+                        }
+                        case 6: {
+                            CodeExit obj = new CodeExit();
+                            obj.out();
+                        }
                     }
                 }
             }

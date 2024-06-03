@@ -9,7 +9,7 @@ class MainMenu
     System.out.println("Press 2 : To See an Employee Details ");
     System.out.println("Press 3 : To Remove an Employee");
     System.out.println("Press 4 : To Update Employee Details");
-    System.out.println("Press 5 : To Exit the EMS Portal");
-
+    System.out.println("Press 5 : To Logout");
+    System.out.println("Press 6 : To Exit the EMS Portal");
   }
 }
