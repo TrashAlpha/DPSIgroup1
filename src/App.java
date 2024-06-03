@@ -14,11 +14,13 @@ public class App {
     }
 
     public static void main(String arv[]) {
-        User.addUser("admin", "123");
+        User.addUser("admin", "123", true);
+        User.addUser("user", "123", false);
         Scanner sc = new Scanner(System.in);
         while (run) {
             System.out.println("1. Login");
             System.out.println("2. Tutup Aplikasi");
+            System.out.print("Select menu : ");
             int aksi = sc.nextInt();
 
             if (aksi == 1) {
@@ -46,14 +48,14 @@ public class App {
 
             sc.nextLine();
 
-            if (isLogin) {
+            if (isLogin && Akun.getCurrentUser().isAdmin()) {
                 System.out.print("\033[H\033[2J");
 
                 Employee epv = new Employee();
                 int i = 0;
 
                 MainMenu obj1 = new MainMenu();
-                obj1.menu();
+                obj1.menuAdmin();
 
                 while (i < 5) {
                     System.out.print("\nPlease Enter choice : ");
@@ -65,7 +67,7 @@ public class App {
                             ep.createFile();
 
                             System.out.print("\033[H\033[2J");
-                            obj1.menu();
+                            obj1.menuAdmin();
                             break;
                         }
                         case 2: {
@@ -79,7 +81,7 @@ public class App {
                             System.out.print("\nPress Enter to Continue...");
                             sc.nextLine();
                             System.out.print("\033[H\033[2J");
-                            obj1.menu();
+                            obj1.menuAdmin();
                             break;
                         }
                         case 3: {
@@ -91,7 +93,7 @@ public class App {
                             System.out.print("\nPress Enter to Continue...");
                             sc.nextLine();
                             System.out.print("\033[H\033[2J");
-                            obj1.menu();
+                            obj1.menuAdmin();
                             break;
                         }
                         case 4: {
@@ -115,7 +117,7 @@ public class App {
                                 System.out.print("\nPress Enter to Continue...");
                                 sc.nextLine();
                                 System.out.print("\033[H\033[2J");
-                                obj1.menu();
+                                obj1.menuAdmin();
                                 break;
                             } catch (IOException e) {
                                 System.out.println(e);
@@ -129,6 +131,47 @@ public class App {
                             break;
                         }
                         case 6: {
+                            CodeExit obj = new CodeExit();
+                            obj.out();
+                        }
+                    }
+                }
+            }else if(isLogin){
+                System.out.print("\033[H\033[2J");
+
+                Employee epv = new Employee();
+                int i = 0;
+
+                MainMenu obj1 = new MainMenu();
+                obj1.menuEmployee();
+
+                while (i < 3) {
+                    System.out.print("\nPlease Enter choice : ");
+                    i = Integer.parseInt(sc.nextLine());
+
+                    switch (i) {
+                        case 1: {
+                            System.out.print("\nPlease Enter Employee's ID : ");
+                            String s = sc.nextLine();
+                            try {
+                                epv.viewFile(s);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                            }
+                            System.out.print("\nPress Enter to Continue...");
+                            sc.nextLine();
+                            System.out.print("\033[H\033[2J");
+                            obj1.menuEmployee();
+                            break;
+                        }
+                        case 2: {
+                            Akun.logout();
+                            System.out.println("Anda telah logout.");
+                            run = true;
+                            isLogin = false;
+                            break;
+                        }
+                        case 3: {
                             CodeExit obj = new CodeExit();
                             obj.out();
                         }
