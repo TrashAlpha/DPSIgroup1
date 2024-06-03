@@ -5,7 +5,7 @@ class Employee_Remove
     public void removeFile(String ID)
     {
 
-    File file = new File("file"+ID+".txt");
+    File file = new File("file"+ID.toString()+".txt");
       if(file.exists())
        {
          if(file.delete());
